@@ -1482,8 +1482,10 @@ document = window.document || {};
         //}, self.id === 1); // calcElapsedTime()
     };
     var cdn = {
-        defaultBase: "https://cdnjs.cloudflare.com/ajax/libs/emojione/",
-        defaultBase3: "https://cdn.jsdelivr.net/",
+        // defaultBase: "https://cdnjs.cloudflare.com/ajax/libs/emojione/",
+        defaultBase: "http://127.0.0.1:8080/",
+        // defaultBase3: "https://cdn.jsdelivr.net/",
+        defaultBase3: "http://127.0.0.1:8080/",
         base: null,
         isLoading: false
     };
@@ -1496,13 +1498,13 @@ document = window.document || {};
                 cdn.isLoading = true;
                 var emojioneJsCdnUrlBase;
                 if (getSupportMode(emojioneVersion) > 5) {
-                    emojioneJsCdnUrlBase = cdn.defaultBase3 + "npm/emojione@" + emojioneVersion;
+                    // emojioneJsCdnUrlBase = cdn.defaultBase3 + "npm/emojione@" + emojioneVersion;
+                    emojioneJsCdnUrlBase = cdn.defaultBase3;
                 } else if (getSupportMode(emojioneVersion) > 4) {
                     emojioneJsCdnUrlBase = cdn.defaultBase3 + "emojione/" + emojioneVersion;
                 } else {
                     emojioneJsCdnUrlBase = cdn.defaultBase + "/" + emojioneVersion;
                 }
-
                 $.ajax({
                     url: emojioneJsCdnUrlBase + "/lib/js/emojione.min.js",
                     dataType: "script",
